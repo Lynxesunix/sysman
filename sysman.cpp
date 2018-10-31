@@ -1,56 +1,58 @@
 #include <iostream>
 #include <string>
+using namespace std;
 int main() {
-std::cout << "Welcome to sysman." << std::endl;
-std::cout << "  _| | |_/ __\\ \\ / / __|  \\/  | /_\\ | \\| |" << std::endl;
-std::cout << " |_  .  _\\__ \\\\ V /\\__ \\ |\\/| |/ _ \\| .` |" << std::endl;
-std::cout << " |_     _|___/ |_| |___/_|  |_/_/ \\_\\_|\\_|" << std::endl;
-std::cout << "   |_|_|   ~~1.2 by Zero" << std::endl;
-std::cout << "RUN THIS SOFTWARE AS ROOT (NOT SUDO BUT SU)" << std::endl;
-std::cout << "" << std::endl;
-std::cout << "" << std::endl;
-std::cout << "   [0] Set min fan speed" << std::endl;
-std::cout << "   [1] Set screen brightness" << std::endl;
-std::cout << "   [2] Set keyboard backlight brightness" << std::endl;
-std::cout << "   [3] Turn on manual fan control and set speed" << std::endl;
-std::cout << "   [4] Turn off manual fan control" << std::endl;
-std::cout << "" << std::endl;
-std::cout << "" << std::endl;
-std::string fsp("/sys/devices/platform/applesmc.768/fan1_min");
-std::string sbb("/sys/class/backlight/intel_backlight/brightness");
-std::string kbb("/sys/class/leds/smc\\:\\:kbd_backlight/brightness");
-std::string fms("/sys/devices/platform/applesmc.768/fan1_output");
+cout << "Welcome to sysman." << endl;
+cout << "    _ _   _____   ________  __   _   _  _" << endl;
+cout << "  _| | |_/ __\\ \\ / / __|  \\/  | /_\\ | \\| |" << endl;
+cout << " |_  .  _\\__ \\\\ V /\\__ \\ |\\/| |/ _ \\| .` |" << endl;
+cout << " |_     _|___/ |_| |___/_|  |_/_/ \\_\\_|\\_|" << endl;
+cout << "   |_|_|   ~~1.2 by Zero" << endl;
+cout << "RUN THIS SOFTWARE AS ROOT (NOT SUDO BUT SU)" << endl;
+cout << "" << endl;
+cout << "" << endl;
+cout << "   [0] Set min fan speed" << endl;
+cout << "   [1] Set screen brightness" << endl;
+cout << "   [2] Set keyboard backlight brightness" << endl;
+cout << "   [3] Turn on manual fan control and set speed" << endl;
+cout << "   [4] Turn off manual fan control" << endl;
+cout << "" << endl;
+cout << "" << endl;
+string fsp("/sys/devices/platform/applesmc.768/fan1_min");
+string sbb("/sys/class/backlight/intel_backlight/brightness");
+string kbb("/sys/class/leds/smc\\:\\:kbd_backlight/brightness");
+string fms("/sys/devices/platform/applesmc.768/fan1_output");
 int uservalue;
 int userdevicevalue;
-std::string command;
-std::cin >> uservalue;
+string command;
+cin >> uservalue;
 if (uservalue == 0) {
-    std::cout << "Insert a value between 1299 and 6199, higher value might damage your device." <<std::endl;
-    std::cin >> userdevicevalue;
-    command = "echo " + std::to_string(userdevicevalue) + " > " + fsp;
+    cout << "Insert a value between 1299 and 6199, higher value might damage your device." << endl;
+    cin >> userdevicevalue;
+    command = "echo " + to_string(userdevicevalue) + " > " + fsp;
     system(command.c_str());
 } else if (uservalue == 1) {
-    std::cout << "Insert a value between 0 (off) and 1388 (max)." << std::endl;
-    std::cin >> userdevicevalue;
-    command = "echo " + std::to_string(userdevicevalue) + " > " + sbb;
+    cout << "Insert a value between 0 (off) and 1388 (max)." << endl;
+    cin >> userdevicevalue;
+    command = "echo " + to_string(userdevicevalue) + " > " + sbb;
     system(command.c_str());
 } else if (uservalue == 2) {
-    std::cout << "Inser a value between 0 (off) and 255 (max)." << std::endl;
-    std::cin >> userdevicevalue;
-    command = "echo " + std::to_string(userdevicevalue) + " > " + kbb;
+    cout << "Inser a value between 0 (off) and 255 (max)." << endl;
+    cin >> userdevicevalue;
+    command = "echo " + to_string(userdevicevalue) + " > " + kbb;
     system(command.c_str());
 } 
 else if (uservalue == 3) {
-    std::cout << "Insert a value (recomended are 1299~6199)" << std::endl;
-    std::cin >> userdevicevalue;
+    cout << "Insert a value (recomended are 1299~6199)" << endl;
+    cin >> userdevicevalue;
     system("echo 1 > /sys/devices/platform/applesmc.768/fan1_manual");
-    command = "echo " + std::to_string(userdevicevalue) + " > " + fms;
+    command = "echo " + to_string(userdevicevalue) + " > " + fms;
     system(command.c_str());
 } else if (uservalue == 4) {
-    std::cout << "Turning off manual fan control..." << std::endl;
+    cout << "Turning off manual fan control..." << endl;
     system("echo 0 > /sys/devices/platform/applesmc.768/fan1_manual");
 } else {
-    std::cout << "Please select a valid option." << std::endl;
+    cout << "Please select a valid option." << endl;
 }
 return 0;
 }
