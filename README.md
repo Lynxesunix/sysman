@@ -11,10 +11,10 @@ SysMan is a C++ simple tool that allow MacBook (designed for Early 2015 MacBook 
 # Future Updates
 SysMan will be able to take arguments in the future.
 
-Just to let you know, this program does not use any other lib/dependency, however, because it is modifying /sys files, it have to be ran as root (using su, sudo won't work).
+Just to let you know, this program does not use any other lib/dependency, however, because it is modifying /sys files, it have to be ran as root (using su, sudo may not work).
 
 # Notes
-sysman is the compiled C++ program (Compiled on a MacBook Pro 13" early 2015).
+~~sysman is the compiled C++ program (Compiled on a MacBook Pro 13" early 2015).~~ (Now only available under "releases")
 sysman.cpp is the source code, you can modify it to match your device (even devices different than Mac) or compile ti for you platform.
 
 To make things easier I suggest to link or move the file to an easy access directory or in /bin, /sbin, /usr/bin and so on.
