@@ -18,3 +18,7 @@ sysman is the compiled C++ program (Compiled on a MacBook Pro 13" early 2015).
 sysman.cpp is the source code, you can modify it to match your device (even devices different than Mac) or compile ti for you platform.
 
 To make things easier I suggest to link or move the file to an easy access directory or in /bin, /sbin, /usr/bin and so on.
+
+# Other Devices
+sysman can work on other devices, however, because I don't own other systems at the moment, I can't test and find the directory to use in order to control fan (if available), screen brightness and keyboard backlight brightness (if available), or eventually other devices.
+If you would like to help making sysman available for more systems and devices, feel free to edit the source code, and make a new version for that device.
